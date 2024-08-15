@@ -2,6 +2,9 @@ This is a simple personal project I made for making playlists based on-
 
 3 emotions - happy, sad, energetic 
 
+
+
+
 How it basically works is-
 
 Obtain the listening history from spotify
@@ -16,7 +19,11 @@ Open in spotify link
 
 
 
+
+
 These are the audio features but I haven't used all of these-
+
+
 
 Acousticness: A confidence measure from 0.0 to 1.0 of whether the track is acoustic. 1.0 represents high confidence the track is acoustic.
 
