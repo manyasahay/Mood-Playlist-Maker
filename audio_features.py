@@ -29,7 +29,7 @@ def get_track_id(track_name, artist_name):
 # Batch processing function
 def fetch_audio_features(track_ids):
     try:
-        features = sp.audio_features(track_ids)  # Pass track_ids as a list, not a string
+        features = sp.audio_features(track_ids)  # Pass track_ids as a list
         return features
     except spotipy.exceptions.SpotifyException as e:
         print(f"Spotify API error: {e}")
@@ -58,7 +58,7 @@ for index, row in history.iterrows():
             valid_features = [f for f in features if f is not None]  # Filter out None values
             audio_features.extend(valid_features)
         track_ids = []
-        time.sleep(1)  # Short sleep to handle rate limits
+        time.sleep(1)  #  handle rate limits
 
 # Fetch any remaining tracks
 if track_ids:
