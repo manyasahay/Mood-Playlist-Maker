@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Playlist Maker</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+<style>
+  .w3-card-button {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+  .w3-card-button:hover {
+    background-color: #ddd;
+  }
+  .emoji {
+    font-size: 120px;
+    margin-bottom: 20px;
+    display: block;
+  }
+</style>
+</head>
+<script>
+  async function runScript(action) {
+      const response = await fetch(`/run?action=${action}`);
+      const data = await response.json();
+
+      if (data.message.includes("Unknown")) {
+          alert("No data found.");
+      } else {
+          let output = `<h2>${data.message}</h2>`;
+          if (data.songs.length === 0) {
+              output += "<p>No songs found for this mood.</p>";
+          } else {
+              output += "Your playlist is all ready!!! Click on the link below :)";
+          }
+          // Ensure that playlist_id is available before creating the link
+          if (data.playlist_id) {
+              output += `<p><a href="https://open.spotify.com/playlist/${data.playlist_id}" target="_blank">View your playlist on Spotify</a></p>`;
+          } else {
+              output += "<p>There was an issue creating the playlist. Please try again.</p>";
+          }
+          document.getElementById('songs').innerHTML = output;
+      }
+  }
+</script>
+
+<body>
+<!-- Header -->
+<header class="w3-container w3-theme w3-padding" id="myHeader">
+  <i onclick="w3_open()" class="fa fa-bars w3-xlarge w3-button w3-theme"></i> 
+  <div class="w3-center">
+    <h4>TELL ME HOW YOU'RE FEELING, AND I'LL MAKE YOU A PERSONALISED PLAYLIST!</h4>
+    <img src="{{ url_for('static', filename='bg.png') }}" alt="Mood Image" style="width:100%;max-width:300px;">
+  </div>
+</header>
+
+<div class="w3-row-padding w3-center w3-margin-top">
+  <a href="javascript:void(0);" class="w3-card-button w3-third" onclick="runScript('sad')">
+    <div class="w3-card w3-container" style="min-height:460px">
+      <h3>Sad</h3><br>
+      <span class="emoji">😢</span>
+      <p>do u feel like a</p>
+      <p>stressed depressed lemon zest</p>
+      <p>tune into these tunes (aha)</p>
+      <p>and embrace the sad :</p>
+    </div>
+  </a>
+
+  <a href="javascript:void(0);" class="w3-card-button w3-third" onclick="runScript('happy')">
+    <div class="w3-card w3-container" style="min-height:460px">
+      <h3>Happy</h3><br>
+      <span class="emoji">😊</span>
+      <p>do u feel like u can conquer the world</p>
+      <p>amplify those feels by hoping into these tunes</p>
+      <p>happi happi happi</p>
+      <p>skibidi</p>
+    </div>
+  </a>
+
+  <a href="javascript:void(0);" class="w3-card-button w3-third" onclick="runScript('energy')">
+    <div class="w3-card w3-container" style="min-height:460px">
+      <h3>Energy</h3><br>
+      <span class="emoji">💃</span>
+      <p>do u have more adrenaline than water in ur system</p>
+      <p>dance it out !!!!</p>
+      <p>show ur moves to these beats</p>
+      <p>(in private tho)</p>
+    </div>
+  </a>
+</div>
+
+<div id="songs"></div>
+
+</body>
+</html>
