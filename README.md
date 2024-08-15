@@ -1,5 +1,6 @@
 This is a simple personal project I made for making playlists based on-
-#3 emotions - happy, sad, energetic 
+
+3 emotions - happy, sad, energetic 
 
 How it basically works is-
 
