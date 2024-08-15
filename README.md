@@ -1,13 +1,14 @@
-#3 emotions - happy sad energetic 
-#history of songs 
-#categorize the songs 
-#diff songs will be assigned to diff emotions
-#10 songs playlist 
-#open in spotify link
-danceability — self-explanatory
-energy — how 'fast, loud an noisy'
-valence — whether the track sounds happy or sad
-tempo — the bpm
+This is a simple personal project I made for making playlists based on-
+#3 emotions - happy, sad, energetic 
+
+How it basically works is-
+Obtain the listening history from spotify
+Categorize the songs using the audio features 
+Diff songs will be assigned to one of the 3 emotions
+Make a 15 song playlist 
+Open in spotify link
+
+These are the audio features but I haven't used all of these-
 Acousticness: A confidence measure from 0.0 to 1.0 of whether the track is acoustic. 1.0 represents high confidence the track is acoustic.
 Danceability: Danceability describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity. A value of 0.0 is least danceable and 1.0 is most danceable.
 Energy: Energy is a measure from 0.0 to 1.0 and represents a perceptual measure of intensity and activity. Typically, energetic tracks feel fast, loud, and noisy. For example, death metal has high energy, while a Bach prelude scores low on the scale. Perceptual features contributing to this attribute include dynamic range, perceived loudness, timbre, onset rate, and general entropy.
